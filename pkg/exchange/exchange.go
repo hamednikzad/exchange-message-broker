@@ -42,20 +42,24 @@ func (e *Exchange) Subscribe(topic string, msgHandler MsgHandler) (chan struct{}
 		return nil, nil
 	}
 	elements := strings.Split(topic, "_")
-	if len(elements) != 2 {
-		return nil, errors.New("topic format incorrect")
+	if len(elements) != 3 {
+		return nil, errors.New("topic format incorrect (sample: binanace_kline_ethusdt:1m)")
 	}
-	op := elements[0]
+	ex := elements[0]
+	if ex != "binance" {
+		return nil, errors.New("incorrect exchange")
+	}
+	op := elements[1]
 	switch strings.ToLower(op) {
 	case "kline":
-		stop, err := subscribeKline(topic, elements[1], msgHandler)
+		stop, err := subscribeKline(topic, elements[2], msgHandler)
 		if err != nil {
 			return stop, err
 		}
 		e.subscriptions[topic] = stop
 		return stop, nil
 	case "depth":
-		stop := subscribeDepth(topic, elements[1], msgHandler)
+		stop := subscribeDepth(topic, elements[2], msgHandler)
 		e.subscriptions[topic] = stop
 		return stop, nil
 	default:
