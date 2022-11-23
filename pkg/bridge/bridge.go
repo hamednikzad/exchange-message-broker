@@ -2,8 +2,8 @@ package bridge
 
 import (
 	"github.com/sirupsen/logrus"
-	"talox.ai/exchangeMessageBroker/pkg/broker"
-	"talox.ai/exchangeMessageBroker/pkg/exchange"
+	"hamednikzad/exchange-message-broker/pkg/broker"
+	"hamednikzad/exchange-message-broker/pkg/exchange"
 )
 
 type Bridge struct {

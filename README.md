@@ -1,21 +1,17 @@
 # Introduction
-Realtime message broker for Binance, Mazdax
-# Getting Started
-1.	Installation process
-      go get -a
-      
-2.	Software dependencies
-      for run in goland create run configuration and set "Run kind" to directory and set directory to directory that contains main.go .
-3.	Latest releases
-4.	API references
+Real-time message broker for Binance.
+Exchange Message Broker is a Golang application that serves WebSocket connections. This application implements the Pub/Sub 
+pattern for making high-performance concurrent connections. Clients connected to the server
+and subscribe to topics, and the server creates a subscription on Binance. if nobody subscribed to a specific topic, the server
+unsubscribe from that topic on Binance.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests.
+Also, there is an HTML file that has Javascript client implementation that connects to this server and subscribes to some topics.
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better.
+## Run
+You should edit appsettings.json file and set remote server port for listening
+Run this command to get all necessary packages:
+### `go get all`
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+## Test
+Use this command for unit testing:
+### `go test ./...`

@@ -1,6 +1,6 @@
-application: exchangeMessagebroker
+application: exchange-message-broker
 version: 1
-runtime: go115
+runtime: go119
 api_version: go1
 
 handlers:

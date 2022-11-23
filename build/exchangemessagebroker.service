@@ -2,8 +2,8 @@
 Description=Exchange Message Broker
 
 [Service]
-WorkingDirectory=/home/ubuntu/apps/exchangemessagebroker
-ExecStart=/home/ubuntu/apps/exchangemessagebroker/exchangeMsgBroker
+WorkingDirectory=/home/ubuntu/apps/exchange-message-broker
+ExecStart=/home/ubuntu/apps/exchange-message-broker/exchange-message-broker
 Restart=always
 # Restart service after 10 seconds if the dotnet service crashes:
 RestartSec=10
@@ -12,7 +12,6 @@ SyslogIdentifier=exchangeMsgBroker
 User=www-data
 # If you need to run multiple services on different ports set
 # the ports environment variable here:
-# Environment=ASPNETCORE_URLS=http://localhost:6000
 
 [Install]
 WantedBy=multi-user.target

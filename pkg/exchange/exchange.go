@@ -5,16 +5,16 @@ import (
 	"errors"
 	bin "github.com/adshao/go-binance/v2"
 	"github.com/sirupsen/logrus"
+	"hamednikzad/exchange-message-broker/pkg/exchange/binance"
 	"strings"
-	"talox.ai/exchangeMessageBroker/pkg/exchange/binance"
 )
 
 type MsgHandler func(topic string, event string)
 type ErrHandler func(err error)
 
-//Subscribe topic => "exchange_operation_argument"
-//"binance_kline_ltcbtc:1m"
-//"binance_depth_ltcbtc"
+// Subscribe topic => "exchange_operation_argument"
+// "binance_kline_ltcbtc:1m"
+// "binance_depth_ltcbtc"
 type Exchange struct {
 	subscriptions map[string]chan struct{}
 }
